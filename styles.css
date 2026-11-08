@@ -1,0 +1,161 @@
+:root {
+  --bg: #f4f8fb;
+  --white: #ffffff;
+  --navy: #0f2a43;
+  --blue: #1d6fd1;
+  --blue-soft: #dcebfa;
+  --mint: #2fae8c;
+  --mint-soft: #d9f3ea;
+  --muted: #4b6277;
+  --line: #d3e0ea;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  color: var(--navy);
+  font: 400 1.1rem/1.65 "Source Sans 3", system-ui, sans-serif;
+  background:
+    radial-gradient(60rem 40rem at 10% -10%, rgba(29, 111, 209, .25), transparent 60%),
+    radial-gradient(50rem 35rem at 100% 20%, rgba(47, 174, 140, .22), transparent 60%),
+    var(--bg);
+  background-attachment: fixed;
+}
+h1, h2, h3, .brand, .tagline { font-family: "Lexend", "Segoe UI", sans-serif; }
+a { color: inherit; }
+a:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+
+.top, main, footer { max-width: 1080px; margin: 0 auto; padding-inline: 1.5rem; }
+
+/* Frosted glass header */
+.top {
+  position: sticky;
+  top: 1rem;
+  z-index: 10;
+  margin: 1rem auto 0;
+  width: calc(100% - 2rem);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .75rem;
+  padding-block: .8rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, .55);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, .7);
+}
+.brand { display: flex; align-items: center; gap: .6rem; font-weight: 700; font-size: 1.2rem; text-decoration: none; color: var(--blue); }
+.logo { height: 40px; width: auto; }
+nav a { margin-left: 1.5rem; text-decoration: none; color: var(--muted); font-weight: 600; }
+nav a:hover { color: var(--navy); }
+
+.hero { display: grid; grid-template-columns: 1.15fr 1fr; gap: 3.5rem; align-items: center; padding-block: 3rem 5rem; }
+.tagline { margin: 0 0 1rem; color: var(--mint); font-weight: 600; font-size: 1rem; }
+.hero h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 700; line-height: 1.15; margin: 0 0 1.25rem; }
+.lead { color: var(--muted); max-width: 32em; margin: 0 0 1rem; }
+.hint { display: inline-block; margin: 0; padding: .5rem .9rem; background: var(--blue-soft); color: var(--blue); border-radius: 999px; font-weight: 600; font-size: 1rem; }
+
+/* Headline word effects */
+.w {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(.45em);
+  animation: rise .7s cubic-bezier(.2, .7, .2, 1) forwards;
+}
+.w1 { animation-delay: .05s; }
+.w2 { animation-delay: .15s; }
+.w3 { animation-delay: .25s; }
+.w4 { animation-delay: .35s; }
+.w5 { animation-delay: .45s; }
+
+.grad {
+  background: linear-gradient(90deg, var(--blue), var(--mint));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Highlighter stroke that draws itself under "simpler" */
+.mark {
+  background: linear-gradient(rgba(47, 174, 140, .45), rgba(47, 174, 140, .45)) no-repeat 0 88% / 0% .3em;
+  animation: rise .7s .25s cubic-bezier(.2, .7, .2, 1) forwards, draw .7s 1s ease-out forwards;
+}
+.accent { color: var(--blue); }
+
+@keyframes rise { to { opacity: 1; transform: none; } }
+@keyframes draw { to { background-size: 100% .3em; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .w { opacity: 1; transform: none; animation: none; }
+  .mark { background-size: 100% .3em; animation: none; }
+}
+
+/* Frosted glass booking card */
+.booking {
+  border-radius: 1.5rem;
+  padding: 1.75rem;
+  background: rgba(255, 255, 255, .55);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, .7);
+  box-shadow: 0 24px 48px -24px rgba(15, 42, 67, .35);
+}
+.booking-title { margin: 0 0 1.25rem; font: 600 1.1rem "Lexend", sans-serif; }
+.days, .slots { list-style: none; padding: 0; margin: 0; display: flex; gap: .6rem; }
+.days { margin-bottom: 1.25rem; }
+.days li { flex: 1; text-align: center; padding: .6rem 0; border-radius: .9rem; background: rgba(255, 255, 255, .5); font: 600 1.15rem "Lexend", sans-serif; }
+.days span { display: block; font: 400 .85rem "Source Sans 3", sans-serif; color: var(--muted); }
+.slots { margin-bottom: 1.5rem; }
+.slots li { flex: 1; text-align: center; padding: .65rem 0; border: 1px solid var(--line); border-radius: .75rem; background: rgba(255, 255, 255, .4); font-weight: 600; }
+.days li.on, .slots li.on { background: var(--blue); border-color: var(--blue); color: var(--white); }
+.days li.on span { color: var(--blue-soft); }
+.confirm { margin: 0; padding: .8rem 1rem; background: var(--mint-soft); color: #0b5b45; border-radius: .75rem; font-weight: 600; }
+
+/* Browsers without blur support get solid white */
+@supports not (backdrop-filter: blur(1px)) {
+  .top, .booking { background: var(--white); }
+}
+
+.how { padding-block: 3rem; border-top: 1px solid var(--line); }
+h2 { font: 700 1.7rem/1.2 "Lexend", sans-serif; margin: 0 0 1.5rem; }
+.how ol { list-style: none; counter-reset: step; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
+.how li { counter-increment: step; position: relative; padding-top: 3.2rem; }
+.how li::before { content: counter(step); position: absolute; top: 0; left: 0; width: 2.4rem; height: 2.4rem; display: grid; place-items: center; background: var(--blue); color: var(--white); border-radius: 50%; font: 600 1.05rem "Lexend", sans-serif; }
+.how h3 { font-size: 1.15rem; font-weight: 600; margin: 0 0 .5rem; }
+.how p { margin: 0; color: var(--muted); }
+
+/* Photo under each step: same shape for all three */
+.how li img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  margin-top: 1.25rem;
+  border-radius: 1rem;
+  border: 1px solid var(--line);
+  background: var(--blue-soft);
+  box-shadow: 0 16px 32px -20px rgba(15, 42, 67, .4);
+}
+
+.about, .contact { padding-block: 3rem; border-top: 1px solid var(--line); display: grid; grid-template-columns: 1fr 1.6fr; gap: 3rem; }
+.contact { grid-template-columns: 1fr 1fr; }
+.about h2, .contact h2 { margin-bottom: .75rem; }
+.about p, .contact p { margin: 0 0 1rem; color: var(--muted); max-width: 36em; }
+
+/* Partner logos */
+.logos { display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; justify-content: center; padding-block: 2rem; border-top: 1px solid var(--line); }
+.logos img { height: 44px; width: auto; opacity: .85; }
+
+footer { padding-block: 2rem; color: var(--muted); font-size: .95rem; border-top: 1px solid var(--line); }
+.notice { position: fixed; left: 1rem; bottom: 1rem; max-width: 22rem; margin: 0; padding: .8rem 1rem; background: #ffe8a3; color: var(--navy); border-radius: .6rem; font-size: .95rem; }
+
+@media (max-width: 800px) {
+  .hero, .about, .contact, .how ol { grid-template-columns: 1fr; gap: 2rem; }
+  .hero { padding-block: 2rem 3rem; }
+  nav a { margin: 0 1rem 0 0; }
+}
