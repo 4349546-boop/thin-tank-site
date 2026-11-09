@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ThinkTank Solutions – Patient intake and appointments</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="#">
+      <img src="images/logo.png" alt="" class="logo">
+      <span>ThinkTank Solutions</span>
+    </a>
+    <nav aria-label="Main">
+      <a href="#how">How it works</a>
+      <a href="#about">About us</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="tagline">Your Health. Our Priority.</p>
+        <h1>
+          <span class="w w1 grad">Healthcare</span>
+          <span class="w w2">made</span>
+          <span class="w w3 mark">simpler</span>
+          <span class="w w4">and more</span>
+          <span class="w w5 accent">accessible.</span>
+        </h1>
+        <p class="lead">Complete your patient intake, book an appointment or reschedule one with our digital assistant, any time of day, without waiting for someone to pick up.</p>
+        <p class="hint">Select the chat button at the bottom right to begin.</p>
+      </div>
+
+      <div class="booking" role="img" aria-label="Example of a booked appointment: Wednesday 11 November at 10:30">
+        <p class="booking-title">Book an appointment</p>
+        <ul class="days">
+          <li><span>Mon</span>9</li>
+          <li><span>Tue</span>10</li>
+          <li class="on"><span>Wed</span>11</li>
+          <li><span>Thu</span>12</li>
+          <li><span>Fri</span>13</li>
+        </ul>
+        <ul class="slots">
+          <li>09:00</li>
+          <li class="on">10:30</li>
+          <li>14:00</li>
+        </ul>
+        <p class="confirm">✓ Confirmed for Wednesday 11 November, 10:30</p>
+      </div>
+    </section>
+
+    <section id="how" class="how">
+      <h2>Three things you can do with the assistant</h2>
+      <ol>
+        <li>
+          <h3>Complete your patient intake</h3>
+          <p>Submit your initial information once, before your visit, so the front desk already has it.</p>
+          <img src="images/intake.svg" alt="A patient intake form on a clipboard" loading="lazy">
+        </li>
+        <li>
+          <h3>Request and book appointments</h3>
+          <p>Choose a day and time that suits you and get a confirmation straight away.</p>
+          <img src="images/booking.svg" alt="A calendar with an appointment being booked" loading="lazy">
+        </li>
+        <li>
+          <h3>Reschedule an existing appointment</h3>
+          <p>Plans change. Move your booking to another time without calling the facility.</p>
+          <img src="images/reschedule.svg" alt="A calendar with an appointment being moved to a new time" loading="lazy">
+        </li>
+      </ol>
+    </section>
+
+    <section id="about" class="about">
+      <h2>About us</h2>
+      <div>
+        <p>Our mission is to improve access to healthcare through patient-centred services, supported by clear communication and digital technology.</p>
+        <p>We aim to reduce administrative barriers, improve appointment management and make every interaction with our facility more convenient for patients.</p>
+      </div>
+    </section>
+
+    <!--
+    Partner logos: remove this comment marker once you have the image files.
+    <section class="logos" aria-label="Our partners">
+      <img src="images/partner-1.png" alt="Partner one">
+      <img src="images/partner-2.png" alt="Partner two">
+    </section>
+    -->
+
+    <section id="contact" class="contact">
+      <div>
+        <h2>Contact</h2>
+        <p>support@example.com<br>+27 00 000 0000</p>
+      </div>
+      <div>
+        <h2>Good to know</h2>
+        <p>The assistant handles administrative tasks only and cannot give medical advice. In an emergency, call your local emergency number.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 ThinkTank Solutions</footer>
+
+  <p id="chat-notice" class="notice" hidden></p>
+
+  <script src="https://static.oracle.com/cdn/oda/25.4.0/web-sdk.js"></script>
+  <script src="scripts/chat-config.js"></script>
+</body>
+</html>
